@@ -22,7 +22,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CadastroProdutor\CadastroProdutor.csproj" />
+    <ProjectReference Include="..\AutenticacaoAPI\AutenticacaoAPI.csproj" />
+    <ProjectReference Include="..\ProdutoProdutor\UsuarioProdutor.csproj" />
   </ItemGroup>
 
   <ItemGroup>
