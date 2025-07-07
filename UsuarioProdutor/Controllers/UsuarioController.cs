@@ -6,7 +6,7 @@ using MassTransit;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CadastroProdutor.Controllers
+namespace UsuarioProdutor.Controllers
 {
     [ApiController]
     [Route("/[controller]")]

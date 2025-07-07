@@ -99,7 +99,7 @@ builder.Services.AddAuthorization();
 //builder.Services.AddValidatorsFromAssemblyContaining<ContatoRequestValidator>();
 //builder.Services.AddValidatorsFromAssemblyContaining<RegiaoRequestValidator>();
 
-builder.WebHost.UseUrls("http://*:8080");
+//builder.WebHost.UseUrls("http://*:8080");
 
 var app = builder.Build();
 

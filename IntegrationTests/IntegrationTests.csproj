@@ -23,7 +23,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AutenticacaoAPI\AutenticacaoAPI.csproj" />
-    <ProjectReference Include="..\ProdutoProdutor\UsuarioProdutor.csproj" />
   </ItemGroup>
 
   <ItemGroup>
