@@ -2,7 +2,7 @@
 using Core.Requests.Delete;
 using MassTransit;
 
-namespace ProdutoConsumidor.Eventos
+namespace UsuarioConsumidor.Eventos
 {
     public class UsuarioDeletado : IConsumer<UsuarioDeleteRequest>
     {

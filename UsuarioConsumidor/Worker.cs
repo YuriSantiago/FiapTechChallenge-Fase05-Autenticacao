@@ -1,4 +1,4 @@
-namespace CadastroConsumidor
+namespace UsuarioConsumidor
 {
     public class Worker : BackgroundService
     {

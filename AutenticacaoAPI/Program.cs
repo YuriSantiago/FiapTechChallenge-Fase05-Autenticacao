@@ -1,6 +1,9 @@
 using Core.Interfaces.Repositories;
 using Core.Interfaces.Services;
 using Core.Services;
+using Core.Validators;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 
@@ -21,14 +24,20 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-//builder.WebHost.UseUrls("http://*:8080");
+// Adiciona a validação automática e adaptadores de cliente
+builder.Services.AddFluentValidationAutoValidation();
+builder.Services.AddFluentValidationClientsideAdapters();
+
+// Registro dos validadores
+builder.Services.AddValidatorsFromAssemblyContaining<LoginRequestValidator>();
+
+builder.WebHost.UseUrls("http://*:8080");
 
 var app = builder.Build();
 
 app.UseSwagger();
 app.UseSwaggerUI();
-
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 app.UseAuthorization();
 app.UseAuthentication();
 app.MapControllers();

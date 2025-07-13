@@ -176,35 +176,6 @@ namespace UnitTests.Controllers
             endpointMock.Verify(e => e.Send(usuarioRequest, default), Times.Once);
         }
 
-        //[Fact]
-        //public async Task Post_ShouldReturnNotFound_WhenEmailAlreadyExists()
-        //{
-        //    // Arrange
-        //    var usuarioRequest = new UsuarioRequest()
-        //    {
-        //        Nome = "Yuri Santiago",
-        //        Email = "yuri@email.com",
-        //        Senha = Base64Helper.Encode("yuri"),
-        //        Role = "ADMIN"
-        //    };
-
-        //    _mockUsuarioService.Setup(s => s.GetAll()).Returns(
-        //     [
-        //        new UsuarioDTO { Id = 1,
-        //        Nome = "Yuri Santiago",
-        //        Email = "yuri@email.com",
-        //        Senha = Base64Helper.Encode("yuri"),
-        //        Role = "ADMIN" }
-        //     ]);
-
-        //    // Act
-        //    var result = await _usuarioController.Post(usuarioRequest);
-
-        //    // Assert
-        //    var notFound = Assert.IsType<NotFoundObjectResult>(result);
-        //    Assert.Equal("E-mail já cadastrado", notFound.Value);
-        //}
-
         [Fact]
         public async Task Post_ShouldReturnBadRequest_WhenQueueFails()
         {
@@ -294,7 +265,7 @@ namespace UnitTests.Controllers
             _mockConfiguration.Setup(c => c.GetSection("MassTransit:Queues")["UsuarioExclusaoQueue"]).Returns("filaExclusaoUsuario");
 
             // Act
-            var result = await _usuarioController.Delete(id);
+            var result = await _usuarioController.Delete(new UsuarioDeleteRequest { Id = id });
 
             // Assert
             var ok = Assert.IsType<OkResult>(result);
@@ -311,7 +282,7 @@ namespace UnitTests.Controllers
             _mockBus.Setup(b => b.GetSendEndpoint(It.IsAny<Uri>())).ThrowsAsync(new Exception("Falha ao deletar"));
 
             // Act
-            var result = await _usuarioController.Delete(id);
+            var result = await _usuarioController.Delete(new UsuarioDeleteRequest { Id = id});
 
             // Assert
             var badRequest = Assert.IsType<BadRequestObjectResult>(result);

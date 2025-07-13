@@ -164,16 +164,16 @@ namespace UsuarioProdutor.Controllers
         /// <response code="400">Erro ao deletar o usuário</response>
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
-        [HttpDelete("{id:int}")]
+        [HttpDelete]
         [Authorize(Roles = "ADMIN")]
-        public async Task<IActionResult> Delete([FromRoute] int id)
+        public async Task<IActionResult> Delete([FromBody] UsuarioDeleteRequest usuarioDeleteRequest)
         {
 
             try
             {
                 var nomeFila = _configuration.GetSection("MassTransit:Queues")["UsuarioExclusaoQueue"] ?? string.Empty;
                 var endpoint = await _bus.GetSendEndpoint(new Uri($"queue:{nomeFila}"));
-                await endpoint.Send(new UsuarioDeleteRequest { Id = id });
+                await endpoint.Send(new UsuarioDeleteRequest { Id = usuarioDeleteRequest.Id});
 
                 return Ok();
             }

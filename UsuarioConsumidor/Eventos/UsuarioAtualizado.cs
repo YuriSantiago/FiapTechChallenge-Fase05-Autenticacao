@@ -2,7 +2,7 @@
 using Core.Requests.Update;
 using MassTransit;
 
-namespace ProdutoConsumidor.Eventos
+namespace UsuarioConsumidor.Eventos
 {
     public class UsuarioAtualizado : IConsumer<UsuarioUpdateRequest>
     {
