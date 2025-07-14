@@ -6,6 +6,7 @@ using FluentValidation;
 using FluentValidation.AspNetCore;
 using Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
+using Prometheus;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
@@ -40,5 +41,12 @@ app.UseSwaggerUI();
 //app.UseHttpsRedirection();
 app.UseAuthorization();
 app.UseAuthentication();
+app.UseMetricServer();
+app.UseHttpMetrics();
 app.MapControllers();
 app.Run();
+
+namespace AutenticacaoAPI
+{
+    public partial class Program { }
+}

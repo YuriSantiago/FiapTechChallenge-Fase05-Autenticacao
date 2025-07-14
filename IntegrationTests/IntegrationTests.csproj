@@ -23,6 +23,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AutenticacaoAPI\AutenticacaoAPI.csproj" />
+    <ProjectReference Include="..\UsuarioProdutor\UsuarioProdutor.csproj" />
   </ItemGroup>
 
   <ItemGroup>
