@@ -2,7 +2,7 @@
 using System.Net;
 using System.Net.Http.Json;
 
-namespace IntegrationTests.Controller
+namespace IntegrationTests.Controllers
 {
     public class AuthControllerTests : IClassFixture<CustomWebApplicationFactory<AutenticacaoAPI.Program>>
     {

@@ -1,5 +1,5 @@
 ﻿using Core.DTOs;
-using Core.Helper;
+using Core.Helpers;
 using Core.Requests.Create;
 using Core.Requests.Delete;
 using Core.Requests.Update;
@@ -7,7 +7,7 @@ using System.Net;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
 
-namespace IntegrationTests.Cadastro
+namespace IntegrationTests.Controllers
 {
     public class UsuarioControllerTests : IClassFixture<CustomWebApplicationFactory<UsuarioProdutor.Program>>
     {
@@ -150,7 +150,7 @@ namespace IntegrationTests.Cadastro
         }
 
         [Fact]
-        public async Task Update_ShouldReturnOK_WhenUsuarioIsInvalid()
+        public async Task Update_ShouldReturnBadRequest_WhenUsuarioIsInvalid()
         {
             // Arrange
             var usuarioUpdateRequest = new UsuarioUpdateRequest

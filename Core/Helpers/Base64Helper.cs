@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace Core.Helper
+namespace Core.Helpers
 {
     public static class Base64Helper
     {

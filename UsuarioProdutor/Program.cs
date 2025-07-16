@@ -13,7 +13,6 @@ using Microsoft.OpenApi.Models;
 using Prometheus;
 using System.Text;
 
-
 var builder = WebApplication.CreateBuilder(args);
 
 var configuration = builder.Configuration;
@@ -108,7 +107,6 @@ app.UseMetricServer();
 app.UseHttpMetrics();
 app.UseSwagger();
 app.UseSwaggerUI();
-//app.UseHttpsRedirection();
 app.MapControllers();
 app.Run();
 

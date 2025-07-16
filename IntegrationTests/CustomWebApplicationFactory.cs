@@ -1,5 +1,5 @@
 ﻿using Core.Entities;
-using Core.Helper;
+using Core.Helpers;
 using Infrastructure.Repositories;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Hosting;
@@ -55,41 +55,16 @@ namespace IntegrationTests
         {
 
             context.Usuarios.RemoveRange(context.Usuarios);
-            //context.Regioes.RemoveRange(context.Regioes);
+
             await context.SaveChangesAsync();
-
-            //var regiaoSP = context.Regioes.Add(new Regiao
-            //{
-            //    DDD = 11,
-            //    Descricao = "São Paulo",
-            //    DataInclusao = DateTime.UtcNow
-            //});
-
-            //var regiaoRJ = context.Regioes.Add(new Regiao
-            //{
-            //    DDD = 21,
-            //    Descricao = "Rio de Janeiro",
-            //    DataInclusao = DateTime.UtcNow
-            //});
-
 
             context.Usuarios.Add(new Usuario
             {
-                //Id = 1,
                 Nome = "Yuri Santiago",
                 Email = "yuri@email.com",
                 Senha = Base64Helper.Encode("yuri"),
                 Role = "ADMIN"
             });
-
-            //context.Contatos.Add(new Contato
-            //{
-            //    Nome = "Yago",
-            //    Telefone = "999999999",
-            //    Email = "yago@email.com",
-            //    RegiaoId = 2,
-            //    Regiao = regiaoRJ.Entity
-            //});
 
             await context.SaveChangesAsync();
         }
