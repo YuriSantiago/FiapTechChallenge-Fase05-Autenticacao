@@ -12,6 +12,7 @@ namespace UsuarioProdutor.Controllers
     [Route("/[controller]")]
     public class UsuarioController : ControllerBase
     {
+        // Comentário para teste de esteira
         private readonly IBus _bus;
         private readonly IConfiguration _configuration;
         private readonly IUsuarioService _usuarioService;
